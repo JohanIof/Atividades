@@ -16,7 +16,10 @@ public class remota extends salas {
     public void setComputadores(int computadores) {
         this.computadores = computadores;
     }
-    
+    @Override
+    public void CheckSala() {
+   
+	}
 	@Override
 	public void reservar() {
 		int i = JOptionPane.showConfirmDialog(
@@ -57,17 +60,24 @@ if ((s != null) && (s.length() > 0)) {
  
  	String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
 	String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
-
+	String horaInicio = JOptionPane.showInputDialog("Digite a hora de inicio da reserva: ");
+	String horaFim = JOptionPane.showInputDialog("Digite a hora de término da reserva: "); 
 
 
 // código para reservar a sala
 // ...
 
 	JOptionPane.showMessageDialog(null, "Sala remota reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
-	System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
-		"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
-		"A sala possui "+this.getComputadores()+" para uso.");
-		    
+		   
+	JOptionPane.showMessageDialog(null, "A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+", das "+horaInicio+" as "+horaFim+". \n"+
+	    	"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
+	    			"A sala possui "+this.getComputadores()+" Computadores para uso.");
+	
+	System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+", das "+horaInicio+" as "+horaFim+". \n"+
+			"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
+			"A sala possui "+this.getComputadores()+" Computadores para uso.");
+	
+	
 		}
 		else if(i == JOptionPane.CANCEL_OPTION) {
 		    System.out.println("Ta bom, vou fazer mais nada também.");

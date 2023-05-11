@@ -1,21 +1,13 @@
 package principal;
-//import java.util.Scanner;
-//import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import classes.remota;
 import classes.normal;
 import classes.laboratorio;
 import classes.servidor;
+
 public class Main {
 
 	public static void main(String[] args) {
-		//Scanner scanner= new Scanner(System.in);
-		/*String[] ArrayRemotas = new String[2];
-		
-		ArrayList<String> salasnormais = new ArrayList<>();
-		ArrayList<String> salasremotas = new ArrayList<>();
-		ArrayList<String> salaslaboratorios = new ArrayList<>();
-		int numRem = salasremotas.size(); */
 		
 		JOptionPane.showMessageDialog(null,
 			    "Altos códigos passando.",
@@ -97,4 +89,3 @@ public class Main {
 }
 
 // Site bom para JOption: https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
-

@@ -1,5 +1,6 @@
 package classes;
 import javax.swing.JOptionPane;
+
 public class normal extends salas {
     private String disciplina;
     private int datashow;
@@ -34,7 +35,11 @@ public class normal extends salas {
         this.quadro = quadro;
     }
 
-
+    @Override
+    public void CheckSala() {
+   
+	}
+    
 	@Override
 	public void reservar() {
 		
@@ -68,18 +73,19 @@ public class normal extends salas {
 		 
 		String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
     	String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
-    	
-    	
+    	String horaInicio = JOptionPane.showInputDialog("Digite a hora de inicio da reserva: ");
+    	String horaFim = JOptionPane.showInputDialog("Digite a hora de término da reserva: "); 
+
     	
     	// código para reservar a sala
     	// ...
     	
-    	JOptionPane.showMessageDialog(null, "Sala normal reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
+    	JOptionPane.showMessageDialog(null, "Sala normal reservada com sucesso para as datas " + dataInicio + " a " + dataFim+", das "+horaInicio+" as "+horaFim+". \n");
     	JOptionPane.showMessageDialog(null, "A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
     	    	"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
     	    			"A sala possui "+this.getDatashow()+" datashow e "+this.getQuadro()+" Quadro para uso.");
     	
-    	System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
+    	System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+", das "+horaInicio+" as "+horaFim+". \n"+
     	"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
     			"A sala possui "+this.getDatashow()+" datashow e "+this.getQuadro()+" Quadro para uso.");
 		}

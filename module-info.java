@@ -1,3 +1,10 @@
-module Tarefa1 {
+/**
+ * 
+ */
+/**
+ * @author aluno
+ *
+ */
+module Teste1 {
 	requires java.desktop;
 }
