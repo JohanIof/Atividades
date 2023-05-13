@@ -1,24 +1,17 @@
 package principal;
 //import java.util.Scanner;
 //import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import classes.remota;
 import classes.normal;
 import classes.laboratorio;
 import classes.servidor;
+
 public class Main {
 
 	public static void main(String[] args) {
-		//Scanner scanner= new Scanner(System.in);
-		/*String[] ArrayRemotas = new String[2];
-		
-		ArrayList<String> salasnormais = new ArrayList<>();
-		ArrayList<String> salasremotas = new ArrayList<>();
-		ArrayList<String> salaslaboratorios = new ArrayList<>();
-		int numRem = salasremotas.size(); */
-		
 		JOptionPane.showMessageDialog(null,
-			    "Altos códigos passando.",
+			    "Preparando tudo...",
 			    "Aviso",
 			    JOptionPane.WARNING_MESSAGE);
 
@@ -28,12 +21,6 @@ public class Main {
 			    JOptionPane.PLAIN_MESSAGE);
 		servidor res = new servidor();
 		res.setNome(Y);
-		
-		String Z = JOptionPane.showInputDialog(null, Y+
-			    " , digite sua matrícula.",
-			    null,
-			    JOptionPane.PLAIN_MESSAGE);
-		res.setMatricula(Z);
 
 		int i = JOptionPane.showConfirmDialog(
 		        null, 
