@@ -7,8 +7,7 @@ public abstract class salas {
 	protected String responsavel;
 	protected String disciplina;
 	
-	public salas(String id, int capacidade, boolean tipoEvento, 
-			String responsavel, String disciplina) {
+	public salas(String id, int capacidade, boolean tipoEvento, String responsavel, String disciplina) {
         this.id = id;
         this.capacidade = capacidade;
         this.tipoEvento = tipoEvento;
@@ -21,6 +20,7 @@ public abstract class salas {
         return id;
     }
 
+   
     public void setId(String id) {
         this.id = id;
     }
@@ -31,8 +31,8 @@ public abstract class salas {
     }
 
    
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setCapacidade(int cadeiras) {
+        this.capacidade = cadeiras;
     }
 
     
@@ -68,8 +68,5 @@ public abstract class salas {
     }
     
     public abstract void reservar();
-    
-    public abstract void CheckSala();
-
-    
+    public abstract void CheckSala();    
 }
