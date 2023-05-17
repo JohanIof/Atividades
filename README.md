@@ -9,8 +9,8 @@ import classes.normal;
 import classes.laboratorio;
 import classes.servidor;
 ```
-Basicamente, importei todas as classes, exceto a classe "sala", pois ela é
-abstrada, então não vou usar elas no código, apenas suas filha.
+Basicamente, importei todas as classes, exceto a classe "sala", pois ela é<br />
+abstrada, então não vou usar elas no código, apenas suas filhas.
 ##### Funções usadas
 - JOption Pane
   Usado para criar as janelas de input, onde se atribui a uma variável o valor
@@ -43,7 +43,7 @@ O único if usado foi para ver qual tipo de sala o usuário quer agendar.
  remota Opção1 = new Opção1(s, l, false, s, s, l);
  Opção1.reservar();
 ```
-Se o valor escolhido em ` Object[] ExemploArray = {"Opção1", "Opção2", "Opção3"};` for <break>
-igual a "Opção1", será instanciado um novo objeto: `Opção1 Variável = new Opção1(s, l, false, s, s, l);`. <break>
+Se o valor escolhido em ` Object[] ExemploArray = {"Opção1", "Opção2", "Opção3"};` for <br />
+igual a "Opção1", será instanciado um novo objeto: `Opção1 Variável = new Opção1(s, l, false, s, s, l);`. <br />
 logo após, será "chamada" a função "reservar()", que será um pouco diferente em cada classe filhas, devido a polimorfismo e herança.
 ### Sala.java
