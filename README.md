@@ -1,14 +1,16 @@
 # Como funciona o código?
 ---
----
-
-
 ### Main.java
-1. Ele faz isso.
-2. Usei isso
-3. Fiz isso
-4. Neste exemplo usei:
-- Isso
-- isso 
-- isso
-### Infor.java
+Primeiramente, no main java usei estes imports:
+``` java
+import javax.swing.*;
+import classes.remota;
+import classes.normal;
+import classes.laboratorio;
+import classes.servidor;
+```
+[^1]: Basicamente, importei todas as classes, exceto a classe "sala", pois ela é
+[^2]: abstrada, então não vou usar elas no código, apenas suas filhas.
+
+
+### Sala.java
