@@ -9,8 +9,30 @@ import classes.normal;
 import classes.laboratorio;
 import classes.servidor;
 ```
-[^1]: Basicamente, importei todas as classes, exceto a classe "sala", pois ela é
-[^2]: abstrada, então não vou usar elas no código, apenas suas filhas.
-
+Basicamente, importei todas as classes, exceto a classe "sala", pois ela é
+abstrada, então não vou usar elas no código, apenas suas filha.
+##### Funções usadas
+- JOption Pane
+  Usado para criar as janelas de input, onde se atribui a uma variável o valor
+  que o usuário digita uma informação.
+-JOption com array
+  Basicamente eu declarei uma array, depois especifiquei essa array como respostas 
+  pré-selecionada para o painel.
+  Exemplo de criação da rray:
+  ``` java
+  Object[] ExemploArray = {"Opção1", "Opção2", "Opção3"};
+  ```
+  Exemplo de implementação da array em JOption:
+  ```java
+  String ExemploVariavel = (String)JOptionPane.showInputDialog(
+			                    null, 
+			                    "Olá servidor "+Y+",\n" //Mensagem no painel
+			                    + "Escolha uma sala para reservar", 
+			                    "Escolha", // Mensagem do hub
+			                    JOptionPane.QUESTION_MESSAGE, // tipo de painel
+			                    null,
+			                    tiposdesala,
+			                    null);
+  ```
 
 ### Sala.java
