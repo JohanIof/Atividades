@@ -35,7 +35,7 @@ abstrada, então não vou usar elas no código, apenas suas filhas.
 			                    null); // qual valor aparecerá primeiro? pode ser "Opção1", ou ExemploVariavel[0] ou só null
   ```
   
-- If's:
+##### If's usados:
 O único if usado foi para ver qual tipo de sala o usuário quer agendar.
 ```java
  if (s == "Opção1") { 
