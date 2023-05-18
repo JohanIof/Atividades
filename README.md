@@ -75,7 +75,45 @@ A ideia me surgiu quando eu pensei:
 Então está classe é como se fosse uma "biblioteca", onde posso apenas importar ela e usar em outras classes.
 #### Funções
 Está classe usa JComboBox e Jpanel, ambos fazem parte da biblioteca java e basicamente te permitem criar "JOptionPane" personalizados.
-Foi através disso que consegui criar um JOptionPane para selecionar data e hora.
-Painel de horas:
-![Imagem1](imagem_2023-05-17_211927208.png "Painel de horas")
+Foi através disso que consegui criar um JOptionPane para selecionar data e hora.\
+##### Painel de horas:
+![Imagem1](imagem_2023-05-17_211927208.png "Painel de horas")\
+###### Painel de data:
+![Imagem1](imagem_2023-05-17_212008927.png "Painel de horas")\
+Não será explicado como fazer algo parecido, apenas mostrado como foi feito:
+```java
+ public static JPanel criarPainelHora() {
+    	
+        JComboBox<String> horasInicioBox = new JComboBox<>(horas);
+        JComboBox<String> horasFimBox = new JComboBox<>(horas);
+        JComboBox<String> minutosInicioBox = new JComboBox<>(minutos);
+        JComboBox<String> minutosFimBox = new JComboBox<>(minutos);
+    	 JPanel panelhoras = new JPanel();
+    	 panelhoras.add(new JLabel("Começara em, Horas:"));
+    	 panelhoras.add(horasInicioBox);
+    	 panelhoras.add(new JLabel("Minutos:"));
+    	 panelhoras.add(minutosInicioBox);   	 
+    	 panelhoras.add(new JLabel("Terminará em, Horas:"));
+    	 panelhoras.add(horasFimBox);
+    	 panelhoras.add(new JLabel("Minutos:"));
+    	 panelhoras.add(minutosFimBox);
+
+         return panelhoras;
+```
+```java
+ public static JPanel criarPainelData() {
+    	// Cria um JComboBox para selecionar a hora
+        JComboBox<String> diasBox = new JComboBox<>(dias);
+        // Cria um JComboBox para selecionar os minutos
+        JComboBox<String> mesesBox = new JComboBox<>(meses);
+
+    	 JPanel paneldatas = new JPanel();
+    	paneldatas.add(new JLabel("Dia:"));
+    	paneldatas.add(diasBox);
+    	paneldatas.add(new JLabel("Mês:"));
+    	paneldatas.add(mesesBox);
+    	paneldatas.add(new JLabel("de 2023."));
+         return paneldatas;
+```
+### classes restantes (filhas)
 
