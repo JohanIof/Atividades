@@ -68,4 +68,9 @@ public abstract void CheckSala(); // NÂO SERÁ USADO NA APRESENTAÇÃO de 18/05
 ```
 Vale ressaltar que apenas atraves do `@Override` podemos mudar como esse método se comporta em outras classes.
 
-### info.java
+### Info.java
+A ideia me surgiu quando eu pensei:
+> Tenho que criar tantas arrays, criar um método de fazer caixas "JOption" personalizadas... <br />
+  Isso me custará muitas linhas de código. A não ser que eu crie uma "classe" só pra isso. E foi o que eu fiz
+Então está classe é como se fosse uma "biblioteca", onde posso apenas importar ela e usar em outras classes.
+#### Funções
