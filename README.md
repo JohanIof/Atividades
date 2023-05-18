@@ -78,7 +78,7 @@ Está classe usa JComboBox e Jpanel, ambos fazem parte da biblioteca java e basi
 Foi através disso que consegui criar um JOptionPane para selecionar data e hora.\
 ##### Painel de horas:
 ![Imagem1](imagem_2023-05-17_211927208.png "Painel de horas")\
-###### Painel de data:
+##### Painel de data:
 ![Imagem1](imagem_2023-05-17_212008927.png "Painel de horas")\
 Não será explicado como fazer algo parecido, apenas mostrado como foi feito:
 ```java
@@ -116,4 +116,69 @@ Não será explicado como fazer algo parecido, apenas mostrado como foi feito:
          return paneldatas;
 ```
 ### classes restantes (filhas)
+Estas vão herdar todos os atributos da superclasse "sala", assim como seus métodos, entretando,\
+serão modificados com o `@Override`.\
+Exemplo em uma classe ficcional "Salinha", que é filha de "Sala".
+```java
+public main salinha extends Sala {
+// Método construtor e atributos aqui
+@Override
+	public void reservar() {
+	// Código brabo aqui
+	}
+}	
+```
+Quando um `Override` é usado em uma classe filha, ele modifica como aquele método se comportará em relação a classe.
+
+---
+### A base de tudo
+Através dos conceitos apresentados, para fazer o método `reservar()` funcionar, importei as classe info.java em cada\
+classe filha, e de acordo com a necessidade de cada classe fui moldando para ter o melhor resultado.
+##### Funções utilizadas
+
+- *As primeiras linhas de código de cada `reservar()` foram usadas para já definir as variáveis, arrays e valores que serão utilizados*
+``` java
+// Importanto os paineis de data e hora personalizados
+JPanel panelhoras = info.criarPainelHora(); 
+JPanel paneldatas = info.criarPainelData();
+
+// Importanto cada "componente selecionado" das arrays. (serão úteis para saber que número o usuário escolheu nos paineis de data e hora)
+JComboBox<String> horasInicioBox = (JComboBox<String>) panelhoras.getComponent(1);
+JComboBox<String> minutosInicioBox = (JComboBox<String>) panelhoras.getComponent(3);
+JComboBox<String> horasFimBox = (JComboBox<String>) panelhoras.getComponent(5);
+JComboBox<String> minutosFimBox = (JComboBox<String>) panelhoras.getComponent(7);
+JComboBox<String> diasBox = (JComboBox<String>) paneldatas.getComponent(1);
+JComboBox<String> mesesBox = (JComboBox<String>) paneldatas.getComponent(3);
+
+// importanto as arrays que defini em info.java
+Object[] numsala = I.numsalanorm; //Uma array que possui valores de NM01 a NM10 (Diferentes salas tem letras diferentes, então tive que fazer 3 arrays)
+Object[] materias = I.materias; // Matérias referentes as aulas. Português, Matemática, Química...
+```
+Logo após, foram definidas JOptions para pegar as informações que o usuário digita.\
+Aqui será mostrado um exemplo, mas tenha em mente que será necessário um exemplo desse para cada atributo:
+```java
+// Criando uma variável e atrivuindo a ela o valor que será inserido pelo usuário
+int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala normal:"));
+this.setCapacidade(capacidade); // Adicionandoo valor de "capacidade" para o atributo da classe (autoreferencia)
+// Se estiver confuso, pense no "this" como Opção1.capacidade, como visto em "Main.java" --> "If's usados".
+```
+Terminando, será imprimido todos os valores que o usuário digitou, segue o exemplo:
+```java
+//Exemplo utilizado em "Sala normal"
+System.out.println("------------------------------------------\n"+
+" TeleSalas200 - Reservas de salas online\n"+
+ "------------------------------------------\n"+
+"Identificação:                      "+this.getId()+"\n"+
+"Disciplina:                 "+this.getDisciplina()+"\n"+
+"Capacidade:                           "+this.getCapacidade()+"\n"+
+"-------------- - - - - - - - - -----------\n"+
+"Data:                         "+diaSelecionada+"/"+mesSelecionada+"/2023\n"+
+"Início:                            "+horaInicio+":"+minutosInicio+"\n"+
+"Términio:                          "+horaInicio+":"+minutosInicio+"\n"+
+"Datashows:                              "+this.getDatashow()+"\n"+
+"Quadros:                              "+this.getQuadro()+"\n"+
+"-------------- - - - - - - - - -----------\n"+
+"Responsável:            "+this.getResponsavel()+"\n"+
+"------------------------------------------");
+```
 
