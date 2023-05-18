@@ -9,7 +9,7 @@ import classes.normal;
 import classes.laboratorio;
 import classes.servidor;
 ```
-Basicamente, importei todas as classes, exceto a classe "sala", pois ela é<br />
+Basicamente, importei todas as classes, exceto a classe "sala", pois ela é\
 abstrada, então não vou usar elas no código, apenas suas filhas.
 ##### Funções usadas
 - JOption Pane
@@ -43,8 +43,8 @@ O único if usado foi para ver qual tipo de sala o usuário quer agendar.
  remota Opção1 = new Opção1(s, l, false, s, s, l);
  Opção1.reservar();
 ```
-Se o valor escolhido em ` Object[] ExemploArray = {"Opção1", "Opção2", "Opção3"};` for <br />
-igual a "Opção1", será instanciado um novo objeto: `Opção1 Variável = new Opção1(s, l, false, s, s, l);`. <br />
+Se o valor escolhido em ` Object[] ExemploArray = {"Opção1", "Opção2", "Opção3"};` for\
+igual a "Opção1", será instanciado um novo objeto: `Opção1 Variável = new Opção1(s, l, false, s, s, l);`.\
 logo após, será "chamada" a função "reservar()", que será um pouco diferente em cada classe filhas, devido a polimorfismo e herança.
 
 ---
@@ -58,7 +58,7 @@ public abstract class salas {
 	protected String responsavel;
 	protected String disciplina; }
 ```
-Os atributos estão "protegidos", pois, se estivessem "privados", não poderiam ser acessados pelas classes filhas. <br />
+Os atributos estão "protegidos", pois, se estivessem "privados", não poderiam ser acessados pelas classes filhas.\
 A classe é abstrata, afinal, não utilizemos ela, apenas suas filhas. Pense na classe "sala" como um "modelo".
 #### Métodos
 A classe sala é responsável por guardar métodos essencias, como o checksala e o reservar.
@@ -70,7 +70,10 @@ Vale ressaltar que apenas atraves do `@Override` podemos mudar como esse método
 
 ### Info.java
 A ideia me surgiu quando eu pensei:
-> Tenho que criar tantas arrays, criar um método de fazer caixas "JOption" personalizadas... <br />
-  Isso me custará muitas linhas de código. A não ser que eu crie uma "classe" só pra isso. E foi o que eu fiz
+> Tenho que criar tantas arrays, assim como criar um método de fazer caixas "JOption" personalizadas... \
+  Isso me custará muitas linhas de código. A não ser que eu crie uma "classe" só pra isso.
 Então está classe é como se fosse uma "biblioteca", onde posso apenas importar ela e usar em outras classes.
 #### Funções
+Está classe usa JComboBox e Jpanel, ambos fazem parte da biblioteca java e basicamente te permitem criar "JOptionPane" personalizados.
+Foi através disso que consegui criar um JOptionPane para selecionar data e hora.
+
