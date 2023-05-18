@@ -76,4 +76,6 @@ Então está classe é como se fosse uma "biblioteca", onde posso apenas importa
 #### Funções
 Está classe usa JComboBox e Jpanel, ambos fazem parte da biblioteca java e basicamente te permitem criar "JOptionPane" personalizados.
 Foi através disso que consegui criar um JOptionPane para selecionar data e hora.
+Painel de horas:
+![Imagem1](imagem_2023-05-17_211927208.png "Painel de horas")
 
