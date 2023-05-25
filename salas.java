@@ -68,6 +68,5 @@ public abstract class salas {
     }
     
     public abstract void reservar();
-
-    
+    public abstract void CheckSala();    
 }

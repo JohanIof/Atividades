@@ -1,5 +1,6 @@
 package classes;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import classes.info;
 public class remota extends salas {
     private int computadores;
    
@@ -19,6 +20,20 @@ public class remota extends salas {
     
 	@Override
 	public void reservar() {
+		info I = new info();
+	    JPanel panelhoras = info.criarPainelHora();
+	    JPanel paneldatas = info.criarPainelData();
+
+	    JComboBox<String> horasInicioBox = (JComboBox<String>) panelhoras.getComponent(1);
+		JComboBox<String> minutosInicioBox = (JComboBox<String>) panelhoras.getComponent(3);
+		JComboBox<String> horasFimBox = (JComboBox<String>) panelhoras.getComponent(5);
+		JComboBox<String> minutosFimBox = (JComboBox<String>) panelhoras.getComponent(7);
+		JComboBox<String> diasBox = (JComboBox<String>) paneldatas.getComponent(1);
+	    JComboBox<String> mesesBox = (JComboBox<String>) paneldatas.getComponent(3);
+
+		Object[] numsala = I.numsalarem;
+		Object[] materias = I.materias;
+		
 		int i = JOptionPane.showConfirmDialog(
 		        null, 
 		        "O evento é repetitivo?"
@@ -29,10 +44,8 @@ public class remota extends salas {
 		} else if(i == JOptionPane.NO_OPTION) {
 		    System.out.println("Setando tipoEvento para false...");
 		    this.setTipoEvento(false);
-		    
-		    Object[] numsala = {"RM01", "RM02", "RM03", "RM04", "RM05", 
-					"RM06", "RM07", "RM08", "RM09", "RM10"};
-String s = (String)JOptionPane.showInputDialog(
+
+		    	String sID = (String)JOptionPane.showInputDialog(
                     null,
                     "Escolha qual sala deseja reservar",
                     "Escolha",
@@ -42,36 +55,69 @@ String s = (String)JOptionPane.showInputDialog(
                     null);
 
 //If a string was returned, say so.
-if ((s != null) && (s.length() > 0)) {
-    System.out.println("Retornando o valor " + s);   
-    this.setId(s);
+if ((sID != null) && (sID.length() > 0)) {
+    System.out.println("Retornando o valor " + sID);   
+    this.setId(sID);
     
- 
-    int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala remota:"));
- 	this.setCapacidade(capacidade);
+	String sDS = (String)JOptionPane.showInputDialog(
+        null,
+        "Escolha qual sala deseja reservar",
+        "Escolha",
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        materias,
+        "APS");
+		this.setDisciplina(sDS);
+		
+		if (sDS != null){
+			int capacidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a capacidade da sala remota:"));
+		 	this.setCapacidade(capacidade);
+		if (capacidade != 0){
+			int computadores = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de computadores disponíveis na sala remota:"));
+		 	this.setComputadores(computadores);
+		if (computadores != 0){
+			String responsavel = JOptionPane.showInputDialog("Digite o nome do responsável pela reserva da sala:");
+		 	this.setResponsavel(responsavel);
+		if (responsavel != null){
+			 int horarioselecionado = JOptionPane.showConfirmDialog(null, panelhoras, "Selecione o horário", JOptionPane.OK_CANCEL_OPTION);
+			 int dataselecionado = JOptionPane.showConfirmDialog(null, paneldatas, "Selecione o dia", JOptionPane.OK_CANCEL_OPTION);
+			        
+		     String horaInicio = (String) horasInicioBox.getSelectedItem();
+		     String minutosInicio = (String) minutosInicioBox.getSelectedItem();
+		     String horaFim = (String) horasFimBox.getSelectedItem();
+		     String minutosFim = (String) minutosFimBox.getSelectedItem();
+		     String diaSelecionada = (String) diasBox.getSelectedItem();
+		     String mesSelecionada = (String) mesesBox.getSelectedItem();
 
- 	String responsavel = JOptionPane.showInputDialog("Digite o nome do responsável pela reserva da sala:");
- 	this.setResponsavel(responsavel);
- 	int computadores = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de computadores disponíveis na sala remota:"));
- 	this.setComputadores(computadores);
- 
- 	String dataInicio = JOptionPane.showInputDialog("Digite a data de inicio da reserva: ");
-	String dataFim = JOptionPane.showInputDialog("Digite a data de fim da reserva: "); 
+		     JOptionPane.showMessageDialog(null,"Reservado para o dia: "+diaSelecionada+"/"+mesSelecionada+"/2023.\n"+
+									"Será ocupado entre: "+horaInicio+":"+minutosInicio+ " as "+horaFim+":"+minutosFim);
 
+		     System.out.println("------------------------------------------\n"+
+		  			   " TeleSalas200 - Reservas de salas online\n"+
+		  			   "------------------------------------------\n"+
+		  			   "Identificação:                      "+this.getId()+"\n"+
+		  			   "Disciplina:                 "+this.getDisciplina()+"\n"+
+		  			   "Capacidade:                           "+this.getCapacidade()+"\n"+
+		  			   "-------------- - - - - - - - - -----------\n"+
+		  			   "Data:                         "+diaSelecionada+"/"+mesSelecionada+"/2023\n"+
+		  			   "Início:                            "+horaInicio+":"+minutosInicio+"\n"+
+		  			   "Términio:                          "+horaFim+":"+minutosFim+"\n"+
+		  			   "Computadores:                       "+this.getComputadores()+"\n"+
+		  			   "-------------- - - - - - - - - -----------\n"+
+		  			   "Responsável:            "+this.getResponsavel()+"\n"+
+		  			   "------------------------------------------");
+		} else{System.exit(0);}
+		} else{System.exit(0);}
+		} else{System.exit(0);}
+		} else{System.exit(0);}   
+		} else if(i == JOptionPane.CANCEL_OPTION) {
+		    System.out.println("Ta bom, vou fazer mais nada também.");}
+	}
+}
 
-
-// código para reservar a sala
-// ...
-
-	JOptionPane.showMessageDialog(null, "Sala remota reservada com sucesso para as datas " + dataInicio + " a " + dataFim);
-	System.out.println("A sala "+this.getId()+" foi reservada entre as "+ dataInicio+" e "+dataFim+". \n"+
-		"Será ministrada por "+ this.getResponsavel()+" e terá capacidade para "+this.getCapacidade()+" Alunos. \n"+
-		"A sala possui "+this.getComputadores()+" para uso.");
-		    
-		}
-		else if(i == JOptionPane.CANCEL_OPTION) {
-		    System.out.println("Ta bom, vou fazer mais nada também.");
-			}
-		}
+	@Override
+	public void CheckSala() {
+		// TODO Auto-generated method stub
+		
 	}
 }
